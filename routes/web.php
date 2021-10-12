@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function () {
+    echo "Faron Asyari ";
+    echo "190313010";
+});
+Route::get('/data/{data?}', function ($data = "kosong") {
+    return "isi parameter =  " . $data;
+});
+Route::get ('/nama/{nrp}/{nama})', function ($nrp, $nama){
+    if (is_numeric($nrp) && ctype_alpha($nama)){
+        return $nrp . " - " . $nama;
+    }
+})-> where ('nama', '[A-Za-z]+');
